@@ -1,0 +1,133 @@
+Squelch 1.0.2
+
+Supports:
+
+Input   : Ogg Vorbis.
+Output  : ALSA, aRts, esd, IRIX, OSS, NULL, Solaris, raw, AU, WAV...
+					(anything supported by libao)
+
+Features:
+
+* Vorbis tag editor.
+* Fancy playlist.
+
+Benefits over most other audio players (except perhaps alsaplayer):
+
+NO stalling the interface while busy ! 
+NO waiting for track info to be read !
+NO dropout while machine load high !
+NO gaps between tracks !
+NO dragging/dropping new files. Auto update !
+NO patented input decoders.
+NO stupid skins.
+NO stupid visualisation plugins.
+NO overriding your window manager.
+NO reappearing somewhere off-screen because you changed resolution.
+NO bugs ! Anything you think is a bug is your imagination. Tell me anyway.
+
+Drawbacks in relation to some other audio players:
+
+* Loading the entire libqt-mt into memory just to run one application is
+  a waste. Not much I can do about this.
+  
+* How to use it:
+
+  - Start squelch.
+
+  - Press the 'spanner' ('wrench' if you speak US English) icon to open the
+    setup dialog.
+
+  - Type (or browse to) the directory where you keep your audio.
+    If you don't keep it all in one place, you can symlink it all together.
+
+  - Choose your output driver.
+
+  - Say OK to your changes.
+
+  - Watch. You should see a little window pop up, showing you the names
+    of tracks that squelch has found. If you open the playlist window
+    (use the 'magnifying glass') then you can see the tracks being put
+    into a tree.
+
+  - When squelch has finished scanning, have a look around the tree and
+    choose the tracks you want to hear. Pressing the '+' icon will increase
+    their score, and they will appear in the 'real' playlist in the bottom
+    half of the window. Pressing the '-' will decrease their score. Pressing
+    the 'pen' will allow you to edit the 'tags'.
+
+* Notes:
+
+  - Tracks with a score of 0 are removed from the 'real' playlist. Tracks
+    with higher scores appear first in the playlist. So if you're a big
+    Soundgarden fan (and who isn't ?) you can give high scores to your
+    Soundgarden albums and you'll get to hear them first.
+
+  - Changes to the playlist are auto-saved when you haven't made any
+    alterations for about 1/10s.
+
+  - Keybindings for main window:
+
+      h       - previous track
+      l       - next track
+      escape  - stop (and rewind playlist)
+      space   - play / pause
+      return  - restart track
+
+    Why h/l for previous/next ? I use vi and I like vi keybindings for all
+    my apps.
+
+  - You can set defaults for Qt applications by editing your .Xdefaults file.
+    For example, I have this in ~/.Xdefaults:
+
+    squelch*font: -*-helvetica-medium-r-normal--11-*-*-*-*-*-*-*
+
+    This saves typing squelch -font '-*-helvetica-medium-r-normal....'
+
+  - OSS drivers are stupid. If you try and open an OSS device while another
+    application is using it, your application will block. squelch does
+    output in a thread, so the app doesn't block, but if you try to open
+    a locked OSS device then output won't work and the output thread will
+    be blocked. You can unlock the device by stopping whichever app is
+    using it, or you can restart squelch, which is what I do. Actually,
+    I just use ALSA exclusively now.
+
+    Anyone know how to test if OSS devices are busy ? It would be nice
+    to have something like device_is_busy() in libao to avoid situations
+    like this.
+
+  - Example for installing .desktop file and icons for use with KDE2:
+
+    cp squelch.desktop /opt/kde/share/applnk/Multimedia/
+
+    for size in 16 32 48
+    do
+      cp hi${size}-app-squelch.png \
+      /opt/kde/share/icons/hicolor/${size}x${size}/apps/squelch.png
+    done
+
+  - You can force squelch to have no borders if you want. See your
+    window manager's documentation. If you're running KDE, try
+    kstart --type Override squelch -geometry [something]
+
+Requirements:
+
+* Ogg Vorbis libraries (at least RC2, including libao.)
+  Try at: http://www.xiph.org/ogg/vorbis/download/
+
+* Qt-2.2.x, compiled with -thread option.
+  Try at: ftp://ftp.trolltech.com/qt/source/
+
+Getting updates:
+
+* If you want to know when I release a new version of squelch, just send
+  me an email saying so. When you don't want any more updates, just tell
+  me.
+
+TODO:
+
+* Probably nothing. I have other things to do. If you want to take over
+  maintaining, please let me know.
+
+Me:
+  Rik Hemsley (rikkus) <rik@kde.org>
+

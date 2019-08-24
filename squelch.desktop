@@ -1,0 +1,9 @@
+[Desktop Entry]
+BinaryPattern=
+Comment=Squelch music player
+Exec=squelch
+Icon=squelch
+Name=Squelch
+Terminal=0
+Type=Application
+MapNotify=true

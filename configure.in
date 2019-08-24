@@ -1,0 +1,88 @@
+dnl Process this file with autoconf to produce a configure script
+
+AC_INIT(src/main.cpp)
+
+AC_CANONICAL_SYSTEM
+AC_ARG_PROGRAM
+
+AM_INIT_AUTOMAKE(squelch, 1.0.2)
+
+AC_PROG_RANLIB
+AC_PROG_CC
+AC_PROG_CXX
+AC_PROG_INSTALL
+
+AM_CONFIG_HEADER(config.h)
+
+AC_CANONICAL_HOST
+
+AM_PATH_VORBIS(LIBS="$LIBS $VORBIS_LIBS",AC_MSG_ERROR(Vorbis needed!))
+AM_PATH_AO(LIBS="$LIBS $AO_LIBS",AC_MSG_ERROR(libao needed!))
+
+
+case $host in
+
+	*-*-aix*)
+		CXXFLAGS="$CXXFLAGS -DQT_THREAD_SUPPORT -D_THREAD_SAFE"
+		;;
+
+	*-*-freebsd*)
+		CXXFLAGS="$CXXFLAGS -DQT_THREAD_SUPPORT -D_THREAD_SAFE -pthread"
+		X_EXTRA_LIBS="$X_EXTRA_LIBS -pthread"
+		;;
+
+	*-*-hpux*)
+		CXXFLAGS="$CXXFLAGS -DQT_THREAD_SUPPORT -D_POSIX_C_SOURCE=199506L -D_HPUX_SOURCE"
+		X_EXTRA_LIBS="$X_EXTRA_LIBS -lpthread"
+		;;
+
+	*-*-irix*)
+		X_EXTRA_LIBS="$X_EXTRA_LIBS -lpthread"
+		;;
+
+	*-*-linux*)
+			if test "x$GXX" = "xyes"; then
+				CXXFLAGS="$CXXFLAGS -DQT_THREAD_SUPPORT -pthread"
+				X_EXTRA_LIBS="$X_EXTRA_LIBS -pthread"
+			else
+# assume kcc for now
+				CXXFLAGS="$CXXFLAGS --thread-safe"
+				LDFLAGS="$LDFLAGS --thread-safe"
+			fi
+		;;
+
+	*-*-osf1*)
+		if test "x$GXX" = "xyes"; then
+			CXXFLAGS="$CXXFLAGS -DQT_THREAD_SUPPORT -D_REENTRANT"
+			X_EXTRA_LIBS="$X_EXTRA_LIBS -pthread"
+		else
+			CXXFLAGS="$CXXFLAGS -pthread"
+			LDFLAGS="$LDFLAGS -pthread"
+		fi
+		;;
+
+	*-*-qnx*)
+		CXXFLAGS="$CXXFLAGS -DQT_THREAD_SUPPORT -D_REENTRANT"
+		;;
+
+	*-*-solaris*)
+		if test "x$GXX" = "xyes"; then
+			CXXFLAGS="$CXXFLAGS -DQT_THREAD_SUPPORT -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS"
+			X_EXTRA_LIBS="$X_EXTRA_LIBS -lthread"
+		else
+			CXXFLAGS="$CXXFLAGS -mt -DQT_THREAD_SUPPORT -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS"
+			LDFLAGS="$LDFLAGS -mt"
+			X_EXTRA_LIBS="$X_EXTRA_LIBS -lthread"
+		fi
+		;;
+
+	*)
+		AC_MSG_ERROR([MT not yet supported on $host - tell me how please !])
+		;;
+
+esac
+
+AM_PATH_QT
+CXXFLAGS="$CXXFLAGS $QT_CXXFLAGS"
+
+AC_OUTPUT(Makefile src/Makefile)

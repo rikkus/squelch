@@ -1,0 +1,40 @@
+.TH SQUELCH 1 "19 March 2001"
+.SH NAME
+squelch \- Ogg Vorbis player for Qt
+.SH SYNOPSIS
+
+[\fBsquelch\fP] [\fIoptions\fP] filename
+
+.SH DESCRIPTION
+\fBsquelch\fP is a player for use with Ogg Vorbis sound files. It supports
+several output formats, which are selectable and configurable at runtime
+via a graphical dialog.
+
+.SH INVOKING
+
+[\fBsquelch\fP] [\fIoptions\fP] filename
+
+.SS Options
+Squelch itself does not take any options. Any of the options common to
+any Qt application are available as usual. This includes -display,
+-geometry, -style, etc. These may also be set with X resources, e.g.
+squelch*font: -*-helvetica-medium-r-normal--11-*-*-*-*-*-*-*
+
+.SS
+Example:
+
+.RS
+\fBsquelch -style platinum "Ugly truth.ogg"\fR
+
+.SH SEE ALSO
+\fB
+ogg123(1),
+oggenc(1)
+\fP
+
+.SH BUGS
+None known at this time.
+
+.SH AUTHOR
+Rik Hemsley (rikkus) <rik@kde.org>
+

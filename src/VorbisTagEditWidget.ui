@@ -1,0 +1,684 @@
+<!DOCTYPE UI><UI>
+<class>VorbisTagEditWidget</class>
+<comment>Widget for editing tags of
+Ogg Vorbis compressed audio
+files.
+</comment>
+<author>Rik Hemsley (rikkus) &lt;rik@kde.org&gt;</author>
+<widget>
+    <class>QWidget</class>
+    <property stdset="1">
+        <name>name</name>
+        <cstring>VorbisTagEditWidget</cstring>
+    </property>
+    <property stdset="1">
+        <name>geometry</name>
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>405</width>
+            <height>466</height>
+        </rect>
+    </property>
+    <property stdset="1">
+        <name>caption</name>
+        <string>Vorbis tag editor</string>
+    </property>
+    <property>
+        <name>toolTip</name>
+        <string></string>
+    </property>
+    <vbox>
+        <property stdset="1">
+            <name>margin</name>
+            <number>11</number>
+        </property>
+        <property stdset="1">
+            <name>spacing</name>
+            <number>6</number>
+        </property>
+        <widget>
+            <class>QLayoutWidget</class>
+            <property stdset="1">
+                <name>name</name>
+                <cstring>Layout11</cstring>
+            </property>
+            <hbox>
+                <property stdset="1">
+                    <name>margin</name>
+                    <number>0</number>
+                </property>
+                <property stdset="1">
+                    <name>spacing</name>
+                    <number>6</number>
+                </property>
+                <widget>
+                    <class>QLabel</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>l_filename</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>sizePolicy</name>
+                        <sizepolicy>
+                            <hsizetype>7</hsizetype>
+                            <vsizetype>1</vsizetype>
+                        </sizepolicy>
+                    </property>
+                    <property stdset="1">
+                        <name>text</name>
+                        <string>No file open</string>
+                    </property>
+                    <property>
+                        <name>toolTip</name>
+                        <string>Track name</string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget>
+            <class>Line</class>
+            <property stdset="1">
+                <name>name</name>
+                <cstring>Sep1</cstring>
+            </property>
+            <property stdset="1">
+                <name>orientation</name>
+                <enum>Horizontal</enum>
+            </property>
+        </widget>
+        <widget>
+            <class>QLayoutWidget</class>
+            <property stdset="1">
+                <name>name</name>
+                <cstring>Layout10</cstring>
+            </property>
+            <grid>
+                <property stdset="1">
+                    <name>margin</name>
+                    <number>0</number>
+                </property>
+                <property stdset="1">
+                    <name>spacing</name>
+                    <number>6</number>
+                </property>
+                <widget row="0"  column="3" >
+                    <class>QLayoutWidget</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>Layout2_2</cstring>
+                    </property>
+                    <vbox>
+                        <property stdset="1">
+                            <name>margin</name>
+                            <number>0</number>
+                        </property>
+                        <property stdset="1">
+                            <name>spacing</name>
+                            <number>6</number>
+                        </property>
+                        <widget>
+                            <class>QPushButton</class>
+                            <property stdset="1">
+                                <name>name</name>
+                                <cstring>pb_addArtist</cstring>
+                            </property>
+                            <property stdset="1">
+                                <name>text</name>
+                                <string></string>
+                            </property>
+                            <property stdset="1">
+                                <name>pixmap</name>
+                                <pixmap>image0</pixmap>
+                            </property>
+                            <property stdset="1">
+                                <name>minimumSize</name>
+                                <size>
+                                    <width>32</width>
+                                    <height>32</height>
+                                </size>
+                            </property>
+                            <property stdset="1">
+                                <name>sizePolicy</name>
+                                <sizepolicy>
+                                    <hsizetype>1</hsizetype>
+                                    <vsizetype>1</vsizetype>
+                                </sizepolicy>
+                            </property>
+                            <property>
+                                <name>toolTip</name>
+                                <string>New artist</string>
+                            </property>
+                        </widget>
+                        <widget>
+                            <class>QPushButton</class>
+                            <property stdset="1">
+                                <name>name</name>
+                                <cstring>pb_removeArtist</cstring>
+                            </property>
+                            <property stdset="1">
+                                <name>text</name>
+                                <string></string>
+                            </property>
+                            <property stdset="1">
+                                <name>pixmap</name>
+                                <pixmap>image1</pixmap>
+                            </property>
+                            <property stdset="1">
+                                <name>minimumSize</name>
+                                <size>
+                                    <width>32</width>
+                                    <height>32</height>
+                                </size>
+                            </property>
+                            <property stdset="1">
+                                <name>enabled</name>
+                                <bool>false</bool>
+                            </property>
+                            <property stdset="1">
+                                <name>sizePolicy</name>
+                                <sizepolicy>
+                                    <hsizetype>1</hsizetype>
+                                    <vsizetype>1</vsizetype>
+                                </sizepolicy>
+                            </property>
+                            <property>
+                                <name>toolTip</name>
+                                <string>Remove selected artist</string>
+                            </property>
+                        </widget>
+                        <spacer>
+                            <property>
+                                <name>name</name>
+                                <cstring>Spacer1_2</cstring>
+                            </property>
+                            <property stdset="1">
+                                <name>orientation</name>
+                                <enum>Vertical</enum>
+                            </property>
+                            <property stdset="1">
+                                <name>sizeType</name>
+                                <enum>Expanding</enum>
+                            </property>
+                            <property>
+                                <name>sizeHint</name>
+                                <size>
+                                    <width>20</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                    </vbox>
+                </widget>
+                <widget row="0"  column="1" >
+                    <class>QLabel</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>l_artists</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>text</name>
+                        <string>&amp;Artists:</string>
+                    </property>
+                    <property>
+                        <name>buddy</name>
+                        <cstring>lb_artists</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>alignment</name>
+                        <set>AlignTop|AlignLeft</set>
+                    </property>
+                    <property>
+                        <name>toolTip</name>
+                        <string></string>
+                    </property>
+                    <property>
+                        <name>vAlign</name>
+                    </property>
+                </widget>
+                <widget row="0"  column="0" >
+                    <class>QLabel</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>PixmapLabel4</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>pixmap</name>
+                        <pixmap>image2</pixmap>
+                    </property>
+                    <property stdset="1">
+                        <name>scaledContents</name>
+                        <bool>false</bool>
+                    </property>
+                    <property stdset="1">
+                        <name>alignment</name>
+                        <set>AlignTop|AlignLeft</set>
+                    </property>
+                    <property>
+                        <name>vAlign</name>
+                    </property>
+                </widget>
+                <widget row="3"  column="1" >
+                    <class>QLabel</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>l_extra</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>text</name>
+                        <string>&amp;Extra:</string>
+                    </property>
+                    <property>
+                        <name>buddy</name>
+                        <cstring>lv_extra</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>alignment</name>
+                        <set>AlignTop|AlignLeft</set>
+                    </property>
+                    <property>
+                        <name>vAlign</name>
+                    </property>
+                </widget>
+                <widget row="3"  column="3" >
+                    <class>QLayoutWidget</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>Layout2</cstring>
+                    </property>
+                    <vbox>
+                        <property stdset="1">
+                            <name>margin</name>
+                            <number>0</number>
+                        </property>
+                        <property stdset="1">
+                            <name>spacing</name>
+                            <number>6</number>
+                        </property>
+                        <widget>
+                            <class>QPushButton</class>
+                            <property stdset="1">
+                                <name>name</name>
+                                <cstring>pb_addExtra</cstring>
+                            </property>
+                            <property stdset="1">
+                                <name>text</name>
+                                <string></string>
+                            </property>
+                            <property stdset="1">
+                                <name>pixmap</name>
+                                <pixmap>image0</pixmap>
+                            </property>
+                            <property stdset="1">
+                                <name>minimumSize</name>
+                                <size>
+                                    <width>32</width>
+                                    <height>32</height>
+                                </size>
+                            </property>
+                            <property stdset="1">
+                                <name>sizePolicy</name>
+                                <sizepolicy>
+                                    <hsizetype>1</hsizetype>
+                                    <vsizetype>1</vsizetype>
+                                </sizepolicy>
+                            </property>
+                            <property>
+                                <name>toolTip</name>
+                                <string>New extra tag</string>
+                            </property>
+                        </widget>
+                        <widget>
+                            <class>QPushButton</class>
+                            <property stdset="1">
+                                <name>name</name>
+                                <cstring>pb_removeExtra</cstring>
+                            </property>
+                            <property stdset="1">
+                                <name>text</name>
+                                <string></string>
+                            </property>
+                            <property stdset="1">
+                                <name>pixmap</name>
+                                <pixmap>image1</pixmap>
+                            </property>
+                            <property stdset="1">
+                                <name>minimumSize</name>
+                                <size>
+                                    <width>32</width>
+                                    <height>32</height>
+                                </size>
+                            </property>
+                            <property stdset="1">
+                                <name>enabled</name>
+                                <bool>false</bool>
+                            </property>
+                            <property stdset="1">
+                                <name>sizePolicy</name>
+                                <sizepolicy>
+                                    <hsizetype>1</hsizetype>
+                                    <vsizetype>1</vsizetype>
+                                </sizepolicy>
+                            </property>
+                            <property>
+                                <name>toolTip</name>
+                                <string>Remove selected extra tag</string>
+                            </property>
+                        </widget>
+                        <spacer>
+                            <property>
+                                <name>name</name>
+                                <cstring>Spacer1</cstring>
+                            </property>
+                            <property stdset="1">
+                                <name>orientation</name>
+                                <enum>Vertical</enum>
+                            </property>
+                            <property stdset="1">
+                                <name>sizeType</name>
+                                <enum>Expanding</enum>
+                            </property>
+                            <property>
+                                <name>sizeHint</name>
+                                <size>
+                                    <width>20</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                    </vbox>
+                </widget>
+                <widget row="2"  column="2" >
+                    <class>QLineEdit</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>le_title</cstring>
+                    </property>
+                    <property>
+                        <name>toolTip</name>
+                        <string></string>
+                    </property>
+                </widget>
+                <widget row="1"  column="1" >
+                    <class>QLabel</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>l_album</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>text</name>
+                        <string>A&amp;lbum:</string>
+                    </property>
+                    <property>
+                        <name>buddy</name>
+                        <cstring>le_album</cstring>
+                    </property>
+                </widget>
+                <widget row="0"  column="2" >
+                    <class>QListBox</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>lb_artists</cstring>
+                    </property>
+                </widget>
+                <widget row="3"  column="2" >
+                    <class>QListView</class>
+                    <column>
+                        <property>
+                            <name>text</name>
+                            <string>Name</string>
+                        </property>
+                        <property>
+                            <name>clickable</name>
+                            <bool>true</bool>
+                        </property>
+                        <property>
+                            <name>resizeable</name>
+                            <bool>true</bool>
+                        </property>
+                    </column>
+                    <column>
+                        <property>
+                            <name>text</name>
+                            <string>Value</string>
+                        </property>
+                        <property>
+                            <name>clickable</name>
+                            <bool>true</bool>
+                        </property>
+                        <property>
+                            <name>resizeable</name>
+                            <bool>true</bool>
+                        </property>
+                    </column>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>lv_extra</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>allColumnsShowFocus</name>
+                        <bool>true</bool>
+                    </property>
+                    <property stdset="1">
+                        <name>showSortIndicator</name>
+                        <bool>false</bool>
+                    </property>
+                    <property stdset="1">
+                        <name>resizePolicy</name>
+                        <enum>AutoOne</enum>
+                    </property>
+                    <property>
+                        <name>toolTip</name>
+                        <string>Extra tags</string>
+                    </property>
+                </widget>
+                <widget row="2"  column="1" >
+                    <class>QLabel</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>l_title</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>text</name>
+                        <string>&amp;Title:</string>
+                    </property>
+                    <property>
+                        <name>buddy</name>
+                        <cstring>le_title</cstring>
+                    </property>
+                </widget>
+                <widget row="1"  column="2" >
+                    <class>QLineEdit</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>le_album</cstring>
+                    </property>
+                    <property>
+                        <name>toolTip</name>
+                        <string></string>
+                    </property>
+                </widget>
+                <widget row="2"  column="0" >
+                    <class>QLabel</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>PixmapLabel6</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>pixmap</name>
+                        <pixmap>image3</pixmap>
+                    </property>
+                    <property stdset="1">
+                        <name>scaledContents</name>
+                        <bool>false</bool>
+                    </property>
+                </widget>
+                <widget row="1"  column="0" >
+                    <class>QLabel</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>PixmapLabel5</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>pixmap</name>
+                        <pixmap>image4</pixmap>
+                    </property>
+                    <property stdset="1">
+                        <name>scaledContents</name>
+                        <bool>false</bool>
+                    </property>
+                </widget>
+            </grid>
+        </widget>
+        <widget>
+            <class>Line</class>
+            <property stdset="1">
+                <name>name</name>
+                <cstring>Line3</cstring>
+            </property>
+            <property stdset="1">
+                <name>orientation</name>
+                <enum>Horizontal</enum>
+            </property>
+        </widget>
+        <widget>
+            <class>QLayoutWidget</class>
+            <property stdset="1">
+                <name>name</name>
+                <cstring>Layout9</cstring>
+            </property>
+            <hbox>
+                <property stdset="1">
+                    <name>margin</name>
+                    <number>0</number>
+                </property>
+                <property stdset="1">
+                    <name>spacing</name>
+                    <number>6</number>
+                </property>
+                <widget>
+                    <class>QPushButton</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>pb_help</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>text</name>
+                        <string>&amp;Help...</string>
+                    </property>
+                    <property stdset="1">
+                        <name>autoDefault</name>
+                        <bool>false</bool>
+                    </property>
+                    <property>
+                        <name>toolTip</name>
+                        <string></string>
+                    </property>
+                </widget>
+                <spacer>
+                    <property>
+                        <name>name</name>
+                        <cstring>Spacer2</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>orientation</name>
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property stdset="1">
+                        <name>sizeType</name>
+                        <enum>Expanding</enum>
+                    </property>
+                    <property>
+                        <name>sizeHint</name>
+                        <size>
+                            <width>20</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget>
+                    <class>QPushButton</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>pb_save</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>text</name>
+                        <string>&amp;Save</string>
+                    </property>
+                    <property stdset="1">
+                        <name>autoDefault</name>
+                        <bool>false</bool>
+                    </property>
+                    <property stdset="1">
+                        <name>default</name>
+                        <bool>true</bool>
+                    </property>
+                    <property stdset="1">
+                        <name>enabled</name>
+                        <bool>false</bool>
+                    </property>
+                    <property>
+                        <name>toolTip</name>
+                        <string>Save changes</string>
+                    </property>
+                </widget>
+                <widget>
+                    <class>QPushButton</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>pb_close</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>text</name>
+                        <string>&amp;Close</string>
+                    </property>
+                    <property stdset="1">
+                        <name>autoDefault</name>
+                        <bool>false</bool>
+                    </property>
+                    <property>
+                        <name>toolTip</name>
+                        <string></string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+    </vbox>
+</widget>
+<images>
+    <image>
+        <name>image0</name>
+        <data format="XPM.GZ" length="266">789cd3d7528808f055d0d2e72a2e492cc94c5648ce482c52d04a29cdcdad8c8eb5ade652323452002220a1a4c3a5a4a790ace0979f970a622b03d9ca06600096420270beb232f97c6538c0cea7d47c64f7d65a730100849f3021</data>
+    </image>
+    <image>
+        <name>image1</name>
+        <data format="XPM.GZ" length="266">789cd3d7528808f055d0d2e72a2e492cc94c5648ce482c52d04a29cdcdad8c8eb5ade652323452002220a1a4c3a5a4a790ace0979f970a622b03d9ca06600096420254e12bc301763e35edabb5e60200c85730d1</data>
+    </image>
+    <image>
+        <name>image2</name>
+        <data format="XPM.GZ" length="424">789cd3d7528808f055d0d2e72a2e492cc94c5648ce482c52d04a29cdcdad8c8eb5ade6523234530022130543251d2e253d856405bffcbc54105b19c856360003103711c4354f324f314f02719340dc3430006b8403e5c444653d3d8262102182625021426230210262ca40a0872a06528526a69c9484450c431db2105c0c49082aa69c8424041143380322566bcd05009df05397</data>
+    </image>
+    <image>
+        <name>image3</name>
+        <data format="XPM.GZ" length="424">789c6d90cb0a02310c45f7fd8a30d915711c10bb103f417129888bb4a3e8621cd07121e2bfdbf4657c842e720f373725b586cd7a09ba56d78186930377a40be8f6d675f7ed6ef150553303ffa6d05423558dc1c1aa3fefb947dfe324144b6269ac698d6569591e4285c1af7a33c41f8648990a666da2d26713152c520f058bdec2d884d91d99cf2f4b0ba3ec134c8e8abcf447927b0323e1cb2c667cde2566fcbdd573ae5eda4d5013</data>
+    </image>
+    <image>
+        <name>image4</name>
+        <data format="XPM.GZ" length="1837">789cbdd4c76edc301006e0fb3e8560de8ce0b7a415b922821cdc7b59773bc88145dbdced750df2ee1139430781812097c4f2e583663845d2cecd66a77bdbd9ec5ce7616aa66397b991b9cf66fde3d5d5ebd76f5fbe77660a95b5ff3d9595339f3a33fd69e6b29d9beb2600a285c8e35fb48bae7397d7d1fbc1451eaee80772e99c8f5e8daec3156d83cbbcac4a8a2fc85dd7a860d1045785f49eeadf471be99d8c5e0b96a5d21c3f88368daa6d74ec5719af7ad130c13ddbf3ec11b9f67537c60fc9c690f1125c776bc9f586e4f63ee5df445babb48bf92037c654f1fe75b0763dd9a3f30664edb9bf58df546d3f74ff8dac0b4df9af645358dadf095bd2f9621ced2a274db421d79ae7abc9b6e4fc3bb6e2799e836d2573151f367a64ab2cd5bf25fb92e3b7a27dadbb45f40ad92a13e7874fe6fcf564ced764aff87d28839d54693f576c2da99f86ac25ef634c76a99fe3686f78df624276a95ece363cff3499eb9f077b99f6892376c3f197e4f681d27ccb6497e6dd48a6798567f3fb215c32f52f6c32d7bf207bc5f50f933df57f1adde48efb3923cb9cf317c8da7775f412b9dd07f5b74876e9bc27769aef91fc5eef806df87bdb0c6e9453bcff2eb9519cafa29b227ddfdbe42af5bb43d69acf976ccff1bbe476df747e9f6c0dbdcfd8233bfebe30210f4a7e5fe78307ca1a76451e28eabf3ffdf3f56f62207e5d1f636060e1e0d16080214618ff8a7b8f1198e00297b8c2356e708b3bdce381a228a68d98e2114f6dcc73ac34c50b5ef186f91045bfd558c02296b08c15acf2a96b58c70636b105c131dbd8c12ef6d0a7d3b18f031ce208c738a19898778a339c2347d176be8a125d549050a9169fde430ddd362384111687c2098ffddff7137a158d1888a11889b1987c9cfd6f76f85f9ee98fcf9d9fc03cc773</data>
+    </image>
+</images>
+<tabstops>
+    <tabstop>lb_artists</tabstop>
+    <tabstop>pb_addArtist</tabstop>
+    <tabstop>pb_removeArtist</tabstop>
+    <tabstop>le_album</tabstop>
+    <tabstop>le_title</tabstop>
+    <tabstop>lv_extra</tabstop>
+    <tabstop>pb_addExtra</tabstop>
+    <tabstop>pb_removeExtra</tabstop>
+    <tabstop>pb_help</tabstop>
+    <tabstop>pb_save</tabstop>
+    <tabstop>pb_close</tabstop>
+</tabstops>
+</UI>

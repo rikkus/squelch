@@ -1,0 +1,1 @@
+./configure --with-vorbis-prefix=/usr/local --with-ao-prefix=/usr/local --with-qt-libdir=/usr/X11R6/lib --with-qt-incdir=/usr/X11R6/include --with-qt-bindir=/usr/X11R6/bin
